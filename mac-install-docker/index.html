@@ -5,7 +5,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>
-    Hello Gridea | 鱼柒少年
+    Mac M1下docker安装Centos8并设置SSH远程连接 | 鱼柒少年
 </title>
 <link rel="shortcut icon" href="https://life-hy.github.io/favicon.ico?v=1668668948083">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
@@ -114,47 +114,87 @@
                 <div id="content" class="main-container-left">
                     <article class="post i-card">
                         <h2 class="post-title">
-                            Hello Gridea
+                            Mac M1下docker安装Centos8并设置SSH远程连接
                         </h2>
                         <div class="post-info">
-                            <time class="post-time">2018-12-12</time>
+                            <time class="post-time">2022-10-21</time>
                             
-                                <a href="https://life-hy.github.io/66XpHF4_X/" class="post-tag i-tag
-                            i-tag-success">
-                            #Gridea
+                                <a href="https://life-hy.github.io/pdEMfnK3F/" class="post-tag i-tag
+                            i-tag-error">
+                            #docker
                         </a>
                                 
                         </div>
                         
-                            <div class="post-feature-image" style="background-image: url('https://life-hy.github.io/post-images/hello-gridea.png')"></div>
-                            
                                 <div class="post-content">
-                                    <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+                                    <p>**</p>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="https://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<ol>
+<li>拉取centos8镜像<br>
+保证docker处于启动状态，打开Mac终端输入命令回车:<br>
+<code>docker pull centos:centos8</code></li>
+<li>查看本地所有的镜像，检查centos8是否拉取成功<br>
+<code>docker images</code></li>
+<li>启动容器，在docker虚拟出centos8，启动的同时，设置需要映射的端口，端口映射方法<code>-p mac端口号:docker端口号</code><br>
+<code>docker run -d -p 22:22 -p 3306:3306 -p 80:80 --name centos8 --privileged=true centos:centos8 /usr/sbin/init</code></li>
+<li>进入centos8容器<br>
+<code>docker exec -it centos8 /bin/bash</code></li>
+<li>安装各种常用的工具</li>
+</ol>
+<pre><code>yum install net-tools -y
+yum install -y openssh-server vim lrzsz wget gcc-c++ pcre pcre-devel zlib zlib-devel ruby openssl openssl-devel patch bash-completion lsof unzip zip  
+// 这两个工具会提示找不到，可以不安装
+yum install -y zlib.i686 libstdc++.i686
+</code></pre>
+<ol start="6">
+<li>在安装常用工具时，在centos8中，会出现报错，报错详情如下</li>
+</ol>
+<pre><code>Error: Failed to download metadata for repo 'appstream': Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried
+</code></pre>
+<p>原因是因为官方已经停止了对centos8的维护，在终端中输入如下代码即可解决</p>
+<pre><code>sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+</code></pre>
+<ol start="7">
+<li>继续安装常用工具<code>yum install -y initscripts</code></li>
+<li>安装SSH</li>
+</ol>
+<pre><code>sshd rpm -qa | grep ssh
+yum install openssh-server
+service sshd restart
+</code></pre>
+<p>检查端口是否启动成功 <code>netstat -antp | grep sshd</code></p>
+<ol start="9">
+<li>
+<p>修改sshd_config为密码登录，centos8不用操作，旧版本需要编辑<code> vim /etc/ssh/sshd_config</code><br>
+输入i进入insert模式，使用键盘上下左右移动光标到<code>PermitRootLogin</code>那一行，将前面的#移除，并将no改为yes<br>
+编辑完成后，先按esc，再输入:wq  ,回车保存即可</p>
+</li>
+<li>
+<p>设置root账号的密码<br>
+输入<code>passwd root</code>回车，输入新密码，再次确认新密码回车即可，但centos8 没有passwd命令，输入<code>yum install -y passwd</code>即可</p>
+</li>
+<li>
+<p>下一步即可使用各种工具链接centos8使用了，此处使用终端直接连接，输入<code>ssh root@localhost -p 22</code>，<code>localhost</code>为本机的地址，可以使用当前ip地址，或者<code>127.0.0.1</code>代替，回车输入密码即可连接centsos</p>
+</li>
+</ol>
+<p>查看docker 配置文件</p>
+<h1 id="docker-inspect-centos8"><code>docker inspect centos8</code>**</h1>
+<p>docker管理工具<code>Kitematic</code></p>
 
                                 </div>
                     </article>
                     <!--  -->
                     
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://life-hy.github.io/....../">
+                                <h3 class="post-title">
+                                    ...
+                                </h3>
+                            </a>
+                        </div>
+                        
                             <div id="disqus_thread"></div>
                             <div id="gitalk-container"></div>
                 </div>
@@ -169,11 +209,7 @@
         <div class="toc-title i-card-title">目录</div>
         <div class="toc-content">
             <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
-</ul>
-</li>
+<li><a href="#docker-inspect-centos8"><code>docker inspect centos8</code>**</a></li>
 </ul>
 
         </div>
