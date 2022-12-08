@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://life-hy.github.io</id>
+    <id>https://wish-hy.github.io</id>
     <title>鱼柒少年</title>
-    <updated>2022-11-17T07:17:00.963Z</updated>
+    <updated>2022-12-08T03:01:46.051Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://life-hy.github.io"/>
-    <link rel="self" href="https://life-hy.github.io/atom.xml"/>
+    <link rel="alternate" href="https://wish-hy.github.io"/>
+    <link rel="self" href="https://wish-hy.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://life-hy.github.io/images/avatar.png</logo>
-    <icon>https://life-hy.github.io/favicon.ico</icon>
+    <logo>https://wish-hy.github.io/images/avatar.png</logo>
+    <icon>https://wish-hy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 鱼柒少年</rights>
     <entry>
         <title type="html"><![CDATA[阿里云修改主机名称]]></title>
-        <id>https://life-hy.github.io/mrnEjUvxE/</id>
-        <link href="https://life-hy.github.io/mrnEjUvxE/">
+        <id>https://wish-hy.github.io/mrnEjUvxE/</id>
+        <link href="https://wish-hy.github.io/mrnEjUvxE/">
         </link>
         <updated>2022-11-05T09:13:38.000Z</updated>
         <content type="html"><![CDATA[<p>购买了一台阿里云的云服务器，登录上之后，用户名又长又丑，决定修改一下<br>
-<img src="https://life-hy.github.io/post-images/1667639800994.png" alt="" loading="lazy"></p>
+<img src="https://wish-hy.github.io/post-images/1667639800994.png" alt="" loading="lazy"></p>
 <p>通过命令 <code>hostname</code>可以打印当前的主机名称<br>
-<img src="https://life-hy.github.io/post-images/1667639919972.png" alt="" loading="lazy"></p>
+<img src="https://wish-hy.github.io/post-images/1667639919972.png" alt="" loading="lazy"></p>
 <p>通过命令hostnamectl set-hostname aliyun可以将主机名修改为aliyun<br>
-<img src="https://life-hy.github.io/post-images/1667639961015.png" alt="" loading="lazy"></p>
+<img src="https://wish-hy.github.io/post-images/1667639961015.png" alt="" loading="lazy"></p>
 <p>阿里云后台重启服务<br>
-<img src="https://life-hy.github.io/post-images/1667640047411.png" alt="" loading="lazy"><br>
+<img src="https://wish-hy.github.io/post-images/1667640047411.png" alt="" loading="lazy"><br>
 重新连接<br>
-<img src="https://life-hy.github.io/post-images/1667639989812.png" alt="" loading="lazy"></p>
+<img src="https://wish-hy.github.io/post-images/1667639989812.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac M1下docker安装Centos8并设置SSH远程连接]]></title>
-        <id>https://life-hy.github.io/mac-install-docker/</id>
-        <link href="https://life-hy.github.io/mac-install-docker/">
+        <id>https://wish-hy.github.io/mac-install-docker/</id>
+        <link href="https://wish-hy.github.io/mac-install-docker/">
         </link>
         <updated>2022-10-21T15:05:22.000Z</updated>
         <summary type="html"><![CDATA[<p>**</p>
@@ -94,8 +94,8 @@ service sshd restart
     </entry>
     <entry>
         <title type="html"><![CDATA[...]]></title>
-        <id>https://life-hy.github.io/....../</id>
-        <link href="https://life-hy.github.io/....../">
+        <id>https://wish-hy.github.io/....../</id>
+        <link href="https://wish-hy.github.io/....../">
         </link>
         <updated>2022-10-17T15:05:22.000Z</updated>
         <summary type="html"><![CDATA[<p>....</p>
@@ -106,8 +106,8 @@ service sshd restart
     </entry>
     <entry>
         <title type="html"><![CDATA[关于]]></title>
-        <id>https://life-hy.github.io/about/</id>
-        <link href="https://life-hy.github.io/about/">
+        <id>https://wish-hy.github.io/about/</id>
+        <link href="https://wish-hy.github.io/about/">
         </link>
         <updated>2019-01-25T11:09:48.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -121,8 +121,8 @@ service sshd restart
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://life-hy.github.io/hello-gridea/</id>
-        <link href="https://life-hy.github.io/hello-gridea/">
+        <id>https://wish-hy.github.io/hello-gridea/</id>
+        <link href="https://wish-hy.github.io/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
